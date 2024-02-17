@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<meta charset="UTF-8"> 
+ <head>
+   <title>Challenge 01</title>
+   <link rel="stylesheet" href="style.css"> 
+
+  </head>
+  <body> 
+
+    <img src="Vector.png">
+  
+    <input id="textinput" name="textinput" type="text" placeholder="Digite seu texto" >
+    
+     
+
+    <input id="textocriptografado" name="textocriptografado" type="text" placeholder="texto criptografado" >
+ 
+               
+                <button id="buttoncripto"  onclick="enviar()">Criptografar</button>
+                <button id="buttondescrpto" onclick="descriptografa()">Descriptografar</button>
+                <button id="buttoncop" onclick="copiar()">Copiar</button>
+          
+   <script type="text/javascript">
+
+        function enviar(){
+            let valor = document.querySelector("#textinput").value;
+            let resultado = valor.replaceAll("e", "enter")
+                                .replaceAll("i", "imes")
+                                .replaceAll("a", "ai")
+                                .replaceAll("o", "ober")
+                                .replaceAll("u", "ufat");
+            mostra(resultado);
+            
+        }
+
+        function descriptografa(){
+            let valor = document.querySelector("#textinput").value;
+            let resultado = valor.replaceAll("enter" ,"e")
+                                .replaceAll("imes", "i" )
+                                .replaceAll("ai", "a" )
+                                .replaceAll("ober", "o" )
+                                .replaceAll("ufat" , "u");
+            mostra(resultado);
+            
+        }
+
+        function copiar(){
+            let copia = document.getElementById("textocriptografado");
+            copia.select(); 
+            navigator.clipboard.writeText(copia.value);
+        }
+
+        function mostra(frase) {
+
+            let txtresultado = document.querySelector("#textocriptografado");
+            txtresultado.value = frase;
+        
+        }
+   </script>
+ </body>
+</html>
